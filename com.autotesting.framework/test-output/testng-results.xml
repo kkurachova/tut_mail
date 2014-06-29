@@ -1,20 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" total="1" passed="0">
+<testng-results skipped="0" failed="1" total="2" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="26" started-at="2014-06-15T09:11:48Z" finished-at="2014-06-15T09:11:48Z">
+  <suite name="Default suite" duration-ms="12644" started-at="2014-06-29T09:51:17Z" finished-at="2014-06-29T09:51:29Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="26" started-at="2014-06-15T09:11:48Z" finished-at="2014-06-15T09:11:48Z">
-      <class name="com.autotesting.framework.screens.RestorePasswordPageScreenTest">
-        <test-method status="FAIL" signature="isRestorePasswordLinkDisplayed()[pri:0, instance:com.autotesting.framework.screens.RestorePasswordPageScreenTest@2df5ccb3]" name="isRestorePasswordLinkDisplayed" duration-ms="11" started-at="2014-06-15T12:11:48Z" finished-at="2014-06-15T12:11:48Z">
-          <exception class="java.lang.RuntimeException">
+    <test name="Default test" duration-ms="12644" started-at="2014-06-29T09:51:17Z" finished-at="2014-06-29T09:51:29Z">
+      <class name="com.autotesting.framework.suits.ValidLogin">
+        <test-method status="PASS" signature="invalidLoginNameToMail()[pri:0, instance:com.autotesting.framework.suits.ValidLogin@468b7aca]" name="invalidLoginNameToMail" duration-ms="12597" started-at="2014-06-29T12:51:17Z" finished-at="2014-06-29T12:51:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- invalidLoginNameToMail -->
+        <test-method status="FAIL" signature="validLogin()[pri:0, instance:com.autotesting.framework.suits.ValidLogin@468b7aca]" name="validLogin" duration-ms="5" started-at="2014-06-29T12:51:29Z" finished-at="2014-06-29T12:51:29Z">
+          <exception class="org.openqa.selenium.WebDriverException">
             <message>
-              <![CDATA[Test not implemented]]>
+              <![CDATA[Session ID may not be null
+Build info: version: '2.9.0', revision: '14289', time: '2011-10-20 23:22:17'
+System info: os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.7.0_51'
+Driver info: driver.version: RemoteWebDriver]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.RuntimeException: Test not implemented
-	at com.autotesting.framework.screens.RestorePasswordPageScreenTest.isRestorePasswordLinkDisplayed(RestorePasswordPageScreenTest.java:9)
+              <![CDATA[org.openqa.selenium.WebDriverException: Session ID may not be null
+Build info: version: '2.9.0', revision: '14289', time: '2011-10-20 23:22:17'
+System info: os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.7.0_51'
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.remote.HttpCommandExecutor$CommandInfo.get(HttpCommandExecutor.java:612)
+	at org.openqa.selenium.remote.HttpCommandExecutor$CommandInfo.getMethod(HttpCommandExecutor.java:596)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:352)
+	at org.openqa.selenium.chrome.ChromeCommandExecutor.execute(ChromeCommandExecutor.java:50)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:397)
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:176)
+	at com.autotesting.framework.screens.MainPageScreen.<init>(MainPageScreen.java:22)
+	at com.autotesting.framework.suits.ValidLogin.validLogin(ValidLogin.java:15)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -41,11 +58,15 @@
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.RuntimeException -->
+          </exception> <!-- org.openqa.selenium.WebDriverException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- isRestorePasswordLinkDisplayed -->
-      </class> <!-- com.autotesting.framework.screens.RestorePasswordPageScreenTest -->
+        </test-method> <!-- validLogin -->
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:com.autotesting.framework.suits.ValidLogin@468b7aca]" name="closeBrowser" is-config="true" duration-ms="1" started-at="2014-06-29T12:51:29Z" finished-at="2014-06-29T12:51:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- com.autotesting.framework.suits.ValidLogin -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

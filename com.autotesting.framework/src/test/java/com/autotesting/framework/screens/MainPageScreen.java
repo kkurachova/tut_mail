@@ -1,11 +1,10 @@
 package com.autotesting.framework.screens;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-public class MainPageScreen {	
-    private static WebDriver driver;
+public class MainPageScreen extends CommonPageScreen {	
     
+	private static final String URL = "http://www.tut.by/";
     private static final String OPEN_MAIL_XPATH = "//*[@id='mainmenu']/div/ul[1]/li[2]/a";
     private static final String LOGIN = "adminkat1@tut.by";
     private static final String EMPTY_LOGIN = "";
@@ -14,51 +13,53 @@ public class MainPageScreen {
     private static final String PASSWORD_FIELD_XPATH = "//*[@id='Password']";
     private static final String ENTER_BUTTON_XPATH = "//*[@id='form']/fieldset/div[3]/input";
     private static final String INVALID_LOGIN = "adminkatt1@tut.by";
-    private static final String INVALID_PASSWORD = "1qaz2wsx";
-    private static final String RESTORE_PASSWORD_LINK_XPASS = "//*[@id='form']/fieldset/div[2]/a";
-    public InboxMailPageScreen validLoginToMail() throws InterruptedException {    
-        driver.findElement(By.xpath(OPEN_MAIL_XPATH)).click();
-        driver.findElement(By.xpath(LOGIN_FIELD_XPATH)).sendKeys(LOGIN);
-        driver.findElement(By.xpath(PASSWORD_FIELD_XPATH)).sendKeys(PASSWORD);
-        driver.findElement(By.xpath(ENTER_BUTTON_XPATH)).click();
-        InboxMailPageScreen mailPage = new InboxMailPageScreen();
-        return mailPage.getPage();
-       				
+    private static final String RESTORE_PASSWORD_LINK_XPATH = "//*[@id='form']/fieldset/div[2]/a";
+    private static final String PATH_TO_ERROR_MESSAGE = "//*[@id='form']/fieldset/strong";
+    
+    
+    public MainPageScreen(){
+    sl4glogger.debug(LOGIN, PASSWORD);
+    driver.get(URL);
+    }
+          
+    public InboxMailPageScreen validLoginToMail() throws InterruptedException { 
+    	sl4glogger.info(String.format("Выполняем вход в систему с LOGIN = %s и PASSWORD = %s", LOGIN, PASSWORD));
+    	driver.clickByXpath(OPEN_MAIL_XPATH);
+    	driver.sendKeysByXpath(LOGIN_FIELD_XPATH, LOGIN);
+    	driver.sendKeysByXpath(PASSWORD_FIELD_XPATH, PASSWORD);
+    	driver.clickByXpath(ENTER_BUTTON_XPATH);
+    	InboxMailPageScreen mailPage = new InboxMailPageScreen();
+        return mailPage.getPage();			
     } 
-    
+          
     public MainPageScreen invalidLoginNameToMail() throws InterruptedException {     
-        driver.findElement(By.xpath(OPEN_MAIL_XPATH)).click();
-        driver.findElement(By.xpath(LOGIN_FIELD_XPATH)).sendKeys(INVALID_LOGIN);
-        driver.findElement(By.xpath(PASSWORD_FIELD_XPATH)).sendKeys(PASSWORD);
-        driver.findElement(By.xpath(ENTER_BUTTON_XPATH)).click();
-        return this;
+    	sl4glogger.info(String.format("Ошибка при входе в систему с INVALID_LOGIN = %s и INVALID_PASSWORD = %s", INVALID_LOGIN, PASSWORD));
+    	driver.clickByXpath(OPEN_MAIL_XPATH);
+    	driver.sendKeysByXpath(LOGIN_FIELD_XPATH, INVALID_LOGIN);
+    	driver.sendKeysByXpath(PASSWORD_FIELD_XPATH, PASSWORD);
+    	driver.clickByXpath(ENTER_BUTTON_XPATH);
+    	return this;
     }
     
-    public void invalidPasswordToMail() throws InterruptedException {     
-        driver.findElement(By.xpath(OPEN_MAIL_XPATH)).click();
-        driver.findElement(By.xpath(LOGIN_FIELD_XPATH)).sendKeys(LOGIN);
-        driver.findElement(By.xpath(PASSWORD_FIELD_XPATH)).sendKeys(INVALID_PASSWORD);
-        driver.findElement(By.xpath(ENTER_BUTTON_XPATH)).click();
-    }
-    
-    public void invalidLoginAndPasswordToMail() throws InterruptedException { 
-        driver.findElement(By.xpath(OPEN_MAIL_XPATH)).click();
-        driver.findElement(By.xpath(LOGIN_FIELD_XPATH)).sendKeys(INVALID_LOGIN);
-        driver.findElement(By.xpath(PASSWORD_FIELD_XPATH)).sendKeys(INVALID_PASSWORD);
-        driver.findElement(By.xpath(ENTER_BUTTON_XPATH)).click();
-    }
-    
-    
+	public boolean isErrorMessageDisplayed(){
+		return driver.findElements(By.xpath(PATH_TO_ERROR_MESSAGE)).size()>0;
+		
+	}
+       
     public RestorePasswordPageScreen restorePassword() {   
-        driver.findElement(By.xpath(RESTORE_PASSWORD_LINK_XPASS)).click();
+        sl4glogger.info(String.format("Переходим на страницу восстановления пароля"));
+        driver.clickByXpath(OPEN_MAIL_XPATH);
+        driver.clickByXpath(RESTORE_PASSWORD_LINK_XPATH);
         RestorePasswordPageScreen restorePasswordpage = new RestorePasswordPageScreen();
         return restorePasswordpage.getPage();
     }
     
     public void emptyLoginToMail() throws InterruptedException { 
-        driver.findElement(By.xpath(OPEN_MAIL_XPATH)).click();
-        driver.findElement(By.xpath(LOGIN_FIELD_XPATH)).sendKeys(EMPTY_LOGIN);
-        driver.findElement(By.xpath(PASSWORD_FIELD_XPATH)).sendKeys(PASSWORD);
-        driver.findElement(By.xpath(ENTER_BUTTON_XPATH)).click();
-    }
+    	sl4glogger.info(String.format("Ошибка при входе в систему с EMPTY_LOGIN = %s и PASSWORD = %s", EMPTY_LOGIN, PASSWORD));
+    	driver.clickByXpath(OPEN_MAIL_XPATH);
+    	driver.sendKeysByXpath(LOGIN_FIELD_XPATH, EMPTY_LOGIN);
+    	driver.sendKeysByXpath(PASSWORD_FIELD_XPATH, PASSWORD);
+    	driver.clickByXpath(ENTER_BUTTON_XPATH);
+    	}
+
 }

@@ -1,14 +1,12 @@
 package com.autotesting.framework.utils;
-
-import java.util.logging.Logger;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.slf4j.LoggerFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.autotesting.framework.screens.CommonPage;
 import com.autotesting.framework.suits.ValidLogin;
 
 public class WebDriverWrapper extends ChromeDriver {
@@ -30,6 +28,12 @@ public class WebDriverWrapper extends ChromeDriver {
         waitForElementPresentAndVisible(xpath, timeout);
         findElement(By.xpath(xpath)).click();
      }
+    
+    public void sendKeysByXpath(String xpath, String text) {
+    	log.debug("[ACTION]: SendKeys by xpath: '" + xpath + "'");
+        waitForElementPresentAndVisible(xpath, TIMEOUT_FOR_ACTION_SECONDS);
+        findElement(By.xpath(xpath)).sendKeys(text);
+    }
   
     public void waitForElementPresentAndVisible(String locator, int timeout) {
         WebDriverWait wait = new WebDriverWait(this, timeout);

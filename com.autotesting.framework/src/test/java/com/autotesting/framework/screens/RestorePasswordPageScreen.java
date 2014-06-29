@@ -2,7 +2,7 @@ package com.autotesting.framework.screens;
 
 import org.openqa.selenium.By;
 
-public class RestorePasswordPageScreen extends CommonPage {
+public class RestorePasswordPageScreen extends CommonPageScreen {
 	private static final String PATH_TO_RESTORE_PASSWORD_MESSAGE = "//*[@id='body']/h2";
 	
 	public RestorePasswordPageScreen getPage(){
