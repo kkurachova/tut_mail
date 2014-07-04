@@ -12,7 +12,7 @@ public class invalidLoginName {
 	@Test
 	public void invalidLoginNameToMail() throws InterruptedException{
 		MainPageScreen mainPage = new MainPageScreen();
-		Assert.assertTrue(mainPage.invalidLoginNameToMail().isErrorMessageDisplayed());
+		Assert.assertTrue(mainPage.InvalidLoginNameToMail().isErrorMessageDisplayed());
 	}
 	
 	@AfterClass
