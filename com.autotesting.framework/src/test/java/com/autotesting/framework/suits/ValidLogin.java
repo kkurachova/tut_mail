@@ -11,9 +11,9 @@ public class ValidLogin {
 MainPageScreen mainPage;
 	 
 	@Test
-	public void ValidLogin() throws InterruptedException{
+	public void validLogin() throws InterruptedException{
 	 mainPage = new MainPageScreen();
-	 InboxMailPageScreen inbox = mainPage.ValidLoginToMail();
+	 InboxMailPageScreen inbox = mainPage.validLoginToMail();
 	 Assert.assertTrue(inbox.isMailLinkDisplayed());
 	 inbox.closePage();
 	}
@@ -21,7 +21,7 @@ MainPageScreen mainPage;
 	@Test
 	public void InvalidLoginNameToMail() throws InterruptedException{
 		MainPageScreen mainPage = new MainPageScreen();
-		Assert.assertTrue(mainPage.InvalidLoginNameToMail().isErrorMessageDisplayed());
+		Assert.assertTrue(mainPage.invalidLoginNameToMail().isErrorMessageDisplayed());
 		mainPage.closePage();
 	}
 	

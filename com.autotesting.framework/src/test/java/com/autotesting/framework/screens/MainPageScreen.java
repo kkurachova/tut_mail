@@ -20,7 +20,7 @@ public class MainPageScreen extends CommonPageScreen {
 	    driver.get(URL);
 	}
           
-    public InboxMailPageScreen ValidLoginToMail() throws InterruptedException { 
+    public InboxMailPageScreen validLoginToMail() throws InterruptedException { 
     	sl4glogger.info(String.format("Выполняем вход в систему с LOGIN = %s и PASSWORD = %s", LOGIN, PASSWORD));
     	driver.clickByXpath(OPEN_MAIL_XPATH);
     	driver.sendKeysByXpath(LOGIN_FIELD_XPATH, LOGIN);
@@ -31,7 +31,7 @@ public class MainPageScreen extends CommonPageScreen {
     }
     
          
-    public MainPageScreen InvalidLoginNameToMail() throws InterruptedException {     
+    public MainPageScreen invalidLoginNameToMail() throws InterruptedException {     
     	sl4glogger.info(String.format("Ошибка при входе в систему с INVALID_LOGIN = %s и INVALID_PASSWORD = %s", INVALID_LOGIN, PASSWORD));
     	driver.clickByXpath(OPEN_MAIL_XPATH);
     	driver.sendKeysByXpath(LOGIN_FIELD_XPATH, INVALID_LOGIN);

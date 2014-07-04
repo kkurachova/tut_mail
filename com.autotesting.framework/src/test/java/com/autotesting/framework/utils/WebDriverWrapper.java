@@ -44,6 +44,11 @@ public class WebDriverWrapper extends ChromeDriver {
     	log.debug("[ACTION]: Find element by xpath: '" + xpath + "'");
         waitForElementPresentAndVisible(xpath, TIMEOUT_FOR_ACTION_SECONDS);
         findElement(By.xpath(xpath));
+		if (ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)) != null){
 		return true;
+		}
+		else{
+		return false;
+		}
     }
 } 
