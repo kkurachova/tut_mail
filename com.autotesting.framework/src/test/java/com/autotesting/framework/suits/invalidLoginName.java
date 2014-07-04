@@ -13,12 +13,10 @@ public class invalidLoginName {
 	public void invalidLoginNameToMail() throws InterruptedException{
 		MainPageScreen mainPage = new MainPageScreen();
 		Assert.assertTrue(mainPage.invalidLoginNameToMail().isErrorMessageDisplayed());
-		
 	}
 	
 	@AfterClass
 	public void closeBrowser(){
 	mainPage.closePage();
 	}
-
 }

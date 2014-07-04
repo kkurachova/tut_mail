@@ -15,6 +15,5 @@ public class RestorePasswordPageLayout {
 		Assert.assertTrue(restore.isRestorePasswordLinkDisplayed());
 		restore.closePage();
 	}
-
 }
 

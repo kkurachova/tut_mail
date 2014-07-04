@@ -11,8 +11,6 @@ public class RestorePasswordPageScreen extends CommonPageScreen {
 	
 	public boolean isRestorePasswordLinkDisplayed(){
 		return driver.findElements(By.xpath(PATH_TO_RESTORE_PASSWORD_MESSAGE)).size()>0;
-		
 	}
-
 }
 

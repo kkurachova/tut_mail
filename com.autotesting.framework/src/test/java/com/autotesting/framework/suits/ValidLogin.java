@@ -1,33 +1,39 @@
 package com.autotesting.framework.suits;
 
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 
 import com.autotesting.framework.screens.InboxMailPageScreen;
 import com.autotesting.framework.screens.MainPageScreen;
+import com.autotesting.framework.screens.RestorePasswordPageScreen;
 
 public class ValidLogin {
 MainPageScreen mainPage;
 	 
 	@Test
-	public void validLogin() throws InterruptedException{
+	public void ValidLogin() throws InterruptedException{
 	 mainPage = new MainPageScreen();
-	 InboxMailPageScreen inbox = mainPage.validLoginToMail();
+	 InboxMailPageScreen inbox = mainPage.ValidLoginToMail();
 	 Assert.assertTrue(inbox.isMailLinkDisplayed());
 	 inbox.closePage();
-	 	}
+	}
 	
 	@Test
-	public void invalidLoginNameToMail() throws InterruptedException{
+	public void InvalidLoginNameToMail() throws InterruptedException{
 		MainPageScreen mainPage = new MainPageScreen();
-		Assert.assertTrue(mainPage.invalidLoginNameToMail().isErrorMessageDisplayed());
+		Assert.assertTrue(mainPage.InvalidLoginNameToMail().isErrorMessageDisplayed());
 		mainPage.closePage();
 	}
-
-	@AfterClass
-	public void closeBrowser(){
 	
+	public class RestorePasswordPageLayout {
+		
+	@Test
+	public RestorePasswordPageLayout() {
+		MainPageScreen mainpage = new MainPageScreen();
+		RestorePasswordPageScreen restore =  mainpage.restorePassword().getPage();
+		Assert.assertTrue(restore.isRestorePasswordLinkDisplayed());
+		restore.closePage();
 	}
-}
 
+}
+}

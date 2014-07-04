@@ -39,4 +39,11 @@ public class WebDriverWrapper extends ChromeDriver {
         WebDriverWait wait = new WebDriverWait(this, timeout);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
     }
+    
+    public boolean isElementDisplayed (String xpath) {
+    	log.debug("[ACTION]: Find element by xpath: '" + xpath + "'");
+        waitForElementPresentAndVisible(xpath, TIMEOUT_FOR_ACTION_SECONDS);
+        findElement(By.xpath(xpath));
+		return true;
+    }
 } 

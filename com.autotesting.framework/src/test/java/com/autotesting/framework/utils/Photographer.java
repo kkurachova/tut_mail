@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
 import com.autotesting.framework.screens.CommonPageScreen;
 
 public class Photographer {
-	private static String SNAPSHOTS_FOLDER = "test-output/snapshots";
+	private static String SNAPSHOTS_FOLDER = "test-output//snapshots";
 	protected final static Logger log = LoggerFactory.getLogger(CommonPageScreen.class);
 
 	public static String getSnapshotName(String driverCommand) {
@@ -52,7 +52,4 @@ public class Photographer {
 			 scrFile.getAbsolutePath(), filename));
 		    }
 		  }
-
-
-
 }
